@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gujarati trader™</title>
 
-    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,25 +14,27 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1294190469194556');
+    
+    // Aapki Nayi Pixel ID Yahan Update Kar Di Hai
+    fbq('init', '1300543251740151');
     fbq('track', 'PageView');
 
     // Sahi Tarike Se Pixel Match Karne Ka Function
     function trackAndRedirect(event, element) {
-        event.preventDefault(); // Naya tab turant khulne se rokta hai taaki pixel fire ho sake
+        event.preventDefault(); // Naya tab turant khulne se rokta hai taaki pixel safely fire ho sake
         
-        // Dono important events ko fire karein taaki ad manager me mismatch na ho
+        // Dono important events ko fire karein taaki data 100% match ho
         fbq('track', 'Contact');
         fbq('track', 'Lead');
 
-        // Meta ko data receive karne ke liye 300 milliseconds ka chota sa waqt dein, fir link open karein
+        // Meta ko data save karne ke liye 350ms ka waqt dein, fir link open karein
         setTimeout(function() {
             window.open(element.href, '_blank');
-        }, 300);
+        }, 350);
     }
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1294190469194556&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1300543251740151&ev=PageView&noscript=1"
     /></noscript>
     
     <style>
@@ -250,7 +251,6 @@
             <div class="tag">Free to Join</div>
         </div>
 
-        <!-- Yahan naya optimized tracking handler lagaya gaya hai -->
         <a href="https://t.me/+hU7nPJW5ptE5OTQ1" class="telegram-btn" onclick="trackAndRedirect(event, this);">
             🚀 Join on Telegram <span>+</span>
         </a>
@@ -302,19 +302,4 @@
         function startRealtimeCounting() {
             let obj = document.getElementById("memberCount");
             setInterval(() => {
-                let currentVal = parseInt(obj.innerText.replace(/,/g, ''));
-                let randomIncrease = Math.floor(Math.random() * 3) + 1; 
-                currentVal += randomIncrease;
-                obj.innerText = currentVal.toLocaleString('en-US');
-            }, 2500); 
-        }
-
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", startCounter);
-        } else {
-            startCounter();
-        }
-    </script>
-
-</body>
-</html>
+                let currentVal = parseInt(obj.innerText.replace(/,/g, '

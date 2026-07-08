@@ -26,7 +26,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
@@ -39,30 +39,30 @@
             padding: 20px;
         }
 
-        /* Card Container Design matching Image */
+        /* Gold Rounded Border Container matching Image */
         .page-container {
-            background-color: #121212;
+            background-color: #0f0f11;
             width: 100%;
-            max-width: 420px;
-            border: 2px solid #e1b12c; /* Gold Border */
-            border-radius: 35px;
-            padding: 30px 20px;
+            max-width: 410px;
+            border: 2px solid #dfb141; 
+            border-radius: 40px;
+            padding: 35px 24px;
             text-align: center;
-            box-shadow: 0px 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0px 15px 35px rgba(0,0,0,0.7);
         }
 
         /* Logo Design */
         .logo-section {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             display: flex;
             justify-content: center;
         }
         .logo-circle {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            border: 3px solid #e1b12c;
-            background-color: #05361e; /* Dark green matching logo */
+            border: 3.5px solid #dfb141;
+            background-color: #032b18; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -79,47 +79,46 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 8px;
         }
         .title-section h1 {
-            color: #f1c40f;
-            font-size: 26px;
-            font-weight: bold;
-            text-transform: lowercase;
+            color: #f7d046;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
         .crown {
-            font-size: 20px;
+            font-size: 22px;
         }
 
         /* Subtitle */
         .subtitle {
-            color: #b2bec3;
+            color: #9aa0a6;
             font-size: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 6px;
         }
-        .subtitle::before {
-            content: "✓";
-            color: #2ed573;
+        .subtitle span {
+            color: #26de81;
             font-weight: bold;
         }
 
         /* Members Badge */
         .members-badge {
-            background-color: #1e1e1e;
-            padding: 12px 20px;
-            border-radius: 15px;
-            font-size: 16px;
+            background-color: #1c1c1f;
+            padding: 14px;
+            border-radius: 16px;
+            font-size: 17px;
             color: #ffffff;
-            margin-bottom: 15px;
-            font-weight: 500;
+            margin-bottom: 16px;
+            font-weight: 600;
         }
         .members-badge span {
-            color: #2ed573 !important;
+            color: #26de81 !important;
             font-weight: bold !important;
         }
 
@@ -127,12 +126,180 @@
         .tags-container {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-bottom: 25px;
+            gap: 12px;
+            margin-bottom: 28px;
         }
         .tag {
-            background-color: #1e1e1e;
-            padding: 8px 18px;
-            border-radius: 12px;
-            font-size: 13px;
-            color:
+            background-color: #1c1c1f;
+            padding: 10px 20px;
+            border-radius: 14px;
+            font-size: 14px;
+            color: #e2e8f0;
+            font-weight: 500;
+        }
+
+        /* Pop-up (Zooming) + Glow Animated Telegram Button */
+        .telegram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(90deg, #0099ff, #0077ff);
+            color: white;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: 700;
+            padding: 16px;
+            border-radius: 50px;
+            width: 100%;
+            margin-bottom: 28px;
+            box-shadow: 0 0 20px rgba(0, 153, 255, 0.6);
+            animation: popupGlow 1.4s infinite alternate ease-in-out;
+        }
+        .telegram-btn span {
+            font-size: 22px;
+            margin-left: 2px;
+        }
+
+        @keyframes popupGlow {
+            0% {
+                transform: scale(0.97);
+                box-shadow: 0 0 12px rgba(0, 153, 255, 0.5);
+            }
+            100% {
+                transform: scale(1.04);
+                box-shadow: 0 0 30px rgba(0, 153, 255, 0.9);
+            }
+        }
+
+        /* Features List */
+        .features-list {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+        .feature-item {
+            background-color: #1c1c1f;
+            padding: 14px 18px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+        .check-icon {
+            color: #26de81;
+            font-weight: bold;
+            margin-right: 14px;
+            font-size: 16px;
+        }
+
+        /* Footer Text */
+        .footer-text {
+            color: #38bdf8;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <div class="logo-section">
+            <div class="logo-circle">
+                <img src="at 1.09.06 AM.jpeg" alt="Logo" onerror="this.style.display='none'; this.parentNode.innerText='ગુજરાતી TRADER'">
+            </div>
+        </div>
+
+        <div class="title-section">
+            <span class="crown">👑</span>
+            <h1>gujarati trader™</h1>
+            <span class="crown">👑</span>
+        </div>
+
+        <p class="subtitle"><span>✓</span> Trusted learning community</p>
+
+        <div class="members-badge">
+            👥 Active Members: <span id="memberCount">0</span>
+        </div>
+
+        <div class="tags-container">
+            <div class="tag">24/7 Updates</div>
+            <div class="tag">Free to Join</div>
+        </div>
+
+        <a href="https://t.me/+CLSuyoV8hMk2MzJl" class="telegram-btn" target="_blank" onclick="fbq('track', 'Contact');">
+            🚀 Join on Telegram <span>+</span>
+        </a>
+
+        <div class="features-list">
+            <div class="feature-item">
+                <span class="check-icon">✓</span> Market Insights & Discussions
+            </div>
+            <div class="feature-item">
+                <span class="check-icon">✓</span> Learn with Experts
+            </div>
+            <div class="feature-item">
+                <span class="check-icon">✓</span> Practical Strategies
+            </div>
+        </div>
+
+        <div class="footer-text">
+            ⚡ Stay Ahead with Smart Learning
+        </div>
+
+    </div>
+
+    <script>
+        function startCounter() {
+            let obj = document.getElementById("memberCount");
+            if (!obj) return;
+
+            let start = 11800;    // Yahan se counting speed me shuru hogi
+            let end = 12490;      // Image ke mutabik main number tak jayegi
+            let duration = 1500;  // 1.5 seconds me fast animation complete hoga
+            let startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                let progress = timestamp - startTime;
+                
+                let current = Math.min(Math.floor((progress / duration) * (end - start) + start), end);
+                obj.innerText = current.toLocaleString('en-US');
+
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    // Ek baar 12,490 poora hone ke baad realtime automatic barhna shuru hoga
+                    startRealtimeCounting();
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+
+        // Har 2-3 seconds me random users increase karne ke liye
+        function startRealtimeCounting() {
+            let obj = document.getElementById("memberCount");
+            setInterval(() => {
+                let currentVal = parseInt(obj.innerText.replace(/,/g, ''));
+                let randomIncrease = Math.floor(Math.random() * 3) + 1; // 1 se 3 member randomly barhenge
+                currentVal += randomIncrease;
+                obj.innerText = currentVal.toLocaleString('en-US');
+            }, 2500); 
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", startCounter);
+        } else {
+            startCounter();
+        }
+    </script>
+
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gujarati trader™</title>
 
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -16,6 +17,20 @@
     'https://connect.facebook.net/en_US/fbevents.js');
     fbq('init', '1294190469194556');
     fbq('track', 'PageView');
+
+    // Sahi Tarike Se Pixel Match Karne Ka Function
+    function trackAndRedirect(event, element) {
+        event.preventDefault(); // Naya tab turant khulne se rokta hai taaki pixel fire ho sake
+        
+        // Dono important events ko fire karein taaki ad manager me mismatch na ho
+        fbq('track', 'Contact');
+        fbq('track', 'Lead');
+
+        // Meta ko data receive karne ke liye 300 milliseconds ka chota sa waqt dein, fir link open karein
+        setTimeout(function() {
+            window.open(element.href, '_blank');
+        }, 300);
+    }
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1294190469194556&ev=PageView&noscript=1"
@@ -39,7 +54,7 @@
             padding: 20px;
         }
 
-        /* Gold Rounded Border Container matching Image */
+        /* Gold Rounded Border Container */
         .page-container {
             background-color: #0f0f11;
             width: 100%;
@@ -138,7 +153,7 @@
             font-weight: 500;
         }
 
-        /* Pop-up (Zooming) + Glow Animated Telegram Button */
+        /* Pop-up + Glow Animated Telegram Button */
         .telegram-btn {
             display: inline-flex;
             align-items: center;
@@ -155,6 +170,7 @@
             margin-bottom: 28px;
             box-shadow: 0 0 20px rgba(0, 153, 255, 0.6);
             animation: popupGlow 1.4s infinite alternate ease-in-out;
+            cursor: pointer;
         }
         .telegram-btn span {
             font-size: 22px;
@@ -234,7 +250,8 @@
             <div class="tag">Free to Join</div>
         </div>
 
-        <a href="https://t.me/+hU7nPJW5ptE5OTQ1" class="telegram-btn" target="_blank" onclick="fbq('track', 'Contact');">
+        <!-- Yahan naya optimized tracking handler lagaya gaya hai -->
+        <a href="https://t.me/+hU7nPJW5ptE5OTQ1" class="telegram-btn" onclick="trackAndRedirect(event, this);">
             🚀 Join on Telegram <span>+</span>
         </a>
 
@@ -261,9 +278,9 @@
             let obj = document.getElementById("memberCount");
             if (!obj) return;
 
-            let start = 11800;    // Yahan se counting speed me shuru hogi
-            let end = 24000;      // Image ke mutabik main number tak jayegi
-            let duration = 1500;  // 1.5 seconds me fast animation complete hoga
+            let start = 11800;    
+            let end = 24000;      
+            let duration = 1500;  
             let startTime = null;
 
             function step(timestamp) {
@@ -276,19 +293,17 @@
                 if (progress < duration) {
                     window.requestAnimationFrame(step);
                 } else {
-                    // Ek baar 12,490 poora hone ke baad realtime automatic barhna shuru hoga
                     startRealtimeCounting();
                 }
             }
             window.requestAnimationFrame(step);
         }
 
-        // Har 2-3 seconds me random users increase karne ke liye
         function startRealtimeCounting() {
             let obj = document.getElementById("memberCount");
             setInterval(() => {
                 let currentVal = parseInt(obj.innerText.replace(/,/g, ''));
-                let randomIncrease = Math.floor(Math.random() * 3) + 1; // 1 se 3 member randomly barhenge
+                let randomIncrease = Math.floor(Math.random() * 3) + 1; 
                 currentVal += randomIncrease;
                 obj.innerText = currentVal.toLocaleString('en-US');
             }, 2500); 

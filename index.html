@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>gujarati trader™</title>
 
+    <!-- Meta Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -15,11 +16,9 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // Nayi Pixel ID Yahan Setup Ki Gayi Hai
     fbq('init', '2067465410811709');
     fbq('track', 'PageView');
 
-    // Sahi Tarike Se Pixel Match Karne Ka Function
     function trackAndRedirect(event, element) {
         event.preventDefault(); 
         
@@ -53,7 +52,6 @@
             padding: 20px;
         }
 
-        /* Gold Rounded Border Container */
         .page-container {
             background-color: #0f0f11;
             width: 100%;
@@ -65,7 +63,6 @@
             box-shadow: 0px 15px 35px rgba(0,0,0,0.7);
         }
 
-        /* Logo Design */
         .logo-section {
             margin-bottom: 12px;
             display: flex;
@@ -81,14 +78,11 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-        }
-        .logo-circle img {
-            width: 85%;
-            height: auto;
-            object-fit: contain;
+            color: #f7d046;
+            font-weight: bold;
+            font-size: 16px;
         }
 
-        /* Title Style */
         .title-section {
             display: flex;
             align-items: center;
@@ -106,7 +100,6 @@
             font-size: 22px;
         }
 
-        /* Subtitle */
         .subtitle {
             color: #9aa0a6;
             font-size: 15px;
@@ -121,7 +114,6 @@
             font-weight: bold;
         }
 
-        /* Members Badge */
         .members-badge {
             background-color: #1c1c1f;
             padding: 14px;
@@ -136,7 +128,6 @@
             font-weight: bold !important;
         }
 
-        /* Tags Container */
         .tags-container {
             display: flex;
             justify-content: center;
@@ -152,7 +143,6 @@
             font-weight: 500;
         }
 
-        /* Pop-up + Glow Animated Telegram Button */
         .telegram-btn {
             display: inline-flex;
             align-items: center;
@@ -187,7 +177,132 @@
             }
         }
 
-        /* Features List */
         .features-list {
             text-align: left;
-            margin-bottom:
+            margin-bottom: 25px;
+        }
+        .feature-item {
+            background-color: #1c1c1f;
+            padding: 14px 18px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            color: #ffffff;
+        }
+        .check-icon {
+            color: #26de81;
+            font-weight: bold;
+            margin-right: 14px;
+            font-size: 16px;
+        }
+
+        .footer-text {
+            color: #38bdf8;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        
+        <div class="logo-section">
+            <div class="logo-circle">
+                <!-- Agar image nahi mili to text show ho jayega, error nahi aayega -->
+                GT
+            </div>
+        </div>
+
+        <div class="title-section">
+            <span class="crown">👑</span>
+            <h1>gujarati trader™</h1>
+            <span class="crown">👑</span>
+        </div>
+
+        <p class="subtitle"><span>✓</span> Trusted learning community</p>
+
+        <div class="members-badge">
+            👥 Active Members: <span id="memberCount">11,800</span>
+        </div>
+
+        <div class="tags-container">
+            <div class="tag">24/7 Updates</div>
+            <div class="tag">Free to Join</div>
+        </div>
+
+        <a href="https://t.me/+hU7nPJW5ptE5OTQ1" class="telegram-btn" onclick="trackAndRedirect(event, this);">
+            🚀 Join on Telegram <span>+</span>
+        </a>
+
+        <div class="features-list">
+            <div class="feature-item">
+                <span class="check-icon">✓</span> Market Insights & Discussions
+            </div>
+            <div class="feature-item">
+                <span class="check-icon">✓</span> Learn with Experts
+            </div>
+            <div class="feature-item">
+                <span class="check-icon">✓</span> Practical Strategies
+            </div>
+        </div>
+
+        <div class="footer-text">
+            ⚡ Stay Ahead with Smart Learning
+        </div>
+
+    </div>
+
+    <script>
+        let currentMembers = 11800; 
+
+        function startCounter() {
+            let obj = document.getElementById("memberCount");
+            if (!obj) return;
+
+            let start = 11800;    
+            let end = 131000;      
+            let duration = 1500; 
+            let startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                let progress = timestamp - startTime;
+                
+                currentMembers = Math.min(Math.floor((progress / duration) * (end - start) + start), end);
+                obj.innerText = currentMembers.toLocaleString('en-US');
+
+                if (progress < duration) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    startRealtimeCounting();
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+
+        function startRealtimeCounting() {
+            let obj = document.getElementById("memberCount");
+            setInterval(() => {
+                let randomIncrease = Math.floor(Math.random() * 3) + 1; 
+                currentMembers += randomIncrease;
+                obj.innerText = currentMembers.toLocaleString('en-US');
+            }, 2500); 
+        }
+
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", startCounter);
+        } else {
+            startCounter();
+        }
+    </script>
+
+</body>
+</html>
